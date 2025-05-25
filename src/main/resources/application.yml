@@ -1,39 +1,5 @@
 spring:
   application:
-    name: kboard-api
-
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
-  jpa:
-    hibernate:
-      ddl-auto: update  # 개발 중에는 create / update 사용
-    properties:
-      hibernate:
-        format_sql: true
-        show_sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
-
-  jackson:
-    serialization:
-      indent_output: true
-
-server:
-  port: 8080
-
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type.descriptor.sql: trace
-
-jwt:
-  secret: my-super-secret-key  # JWT 서명용 시크릿 키 (실제로는 .env로 빼는게 좋음)
-  expiration: 3600000          # 만료 시간 (ms 단위): 1시간
-
+    name: kboard
+  profiles:
+    active: dev # 기본은 dev, 배포 시 prod 로 오버라이드
