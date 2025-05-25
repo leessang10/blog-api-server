@@ -29,6 +29,9 @@ dependencies {
     // JWT (Auth0)
     implementation("com.auth0:java-jwt:4.4.0")
 
+    implementation("org.bouncycastle:bcprov-jdk18on:1.78.1")
+
+
     // Open API (Swagger)
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 

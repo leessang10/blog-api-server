@@ -24,11 +24,12 @@ class SecurityConfig(
                         "/v3/api-docs/**",
                         "/swagger-ui/**",
                         "/swagger-ui.html",
-                        "/users"
+                        "/users/**",
+                        "/auth/**"
                     ).permitAll() // 🔥 Swagger 경로는 인증 없이 허용
                     .anyRequest().authenticated()
             }
-            .httpBasic(Customizer.withDefaults()) // 개발용 간단 인증 (필요 시 제거 가능)
+//            .httpBasic(Customizer.withDefaults()) // 개발용 간단 인증 (필요 시 제거 가능)
             .csrf { it.disable() } // 테스트용으로 CSRF 끄기
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter::class.java)
 

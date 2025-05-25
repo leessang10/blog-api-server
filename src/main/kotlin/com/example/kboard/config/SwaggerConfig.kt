@@ -1,18 +1,37 @@
+package com.example.kboard.config
+
 import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.info.Info
+import io.swagger.v3.oas.models.security.SecurityRequirement
+import io.swagger.v3.oas.models.security.SecurityScheme
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class SwaggerConfig {
+class OpenApiConfig {
+
     @Bean
     fun customOpenAPI(): OpenAPI {
+        val securitySchemeName = "bearerAuth"
+
         return OpenAPI()
             .info(
                 Info()
                     .title("KBoard API")
                     .version("1.0.0")
-                    .description("사용자, 게시글, 댓글 관리용 API 문서입니다.")
+                    .description("JWT 기반 인증 API 문서")
+            )
+            .addSecurityItem(SecurityRequirement().addList(securitySchemeName))
+            .components(
+                io.swagger.v3.oas.models.Components().addSecuritySchemes(
+                    securitySchemeName,
+                    SecurityScheme()
+                        .name(securitySchemeName)
+                        .type(SecurityScheme.Type.HTTP)
+                        .scheme("bearer")
+                        .bearerFormat("JWT")
+                        .`in`(SecurityScheme.In.HEADER)
+                )
             )
     }
 }
