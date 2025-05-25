@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
@@ -27,5 +29,16 @@ class SecurityConfig {
 
 
         return http.build()
+    }
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder {
+        return Argon2PasswordEncoder(
+            16,    // saltLength (default: 16)
+            32,    // hashLength (default: 32)
+            1,     // parallelism (default: 1)
+            65536, // memoryCost in KB (default: 65536 = 64MB)
+            3      // iterations (default: 3)
+        )
     }
 }
