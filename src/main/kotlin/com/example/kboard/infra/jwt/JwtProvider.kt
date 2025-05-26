@@ -1,4 +1,4 @@
-package com.example.kboard.jwt
+package com.example.kboard.infra.jwt
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm

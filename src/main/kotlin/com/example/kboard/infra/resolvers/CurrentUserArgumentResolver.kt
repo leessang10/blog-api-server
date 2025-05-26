@@ -1,14 +1,14 @@
-package com.example.kboard.resolvers
+package com.example.kboard.infra.resolvers
 
-import com.example.kboard.annotations.CurrentUser
+import com.example.kboard.infra.annotations.CurrentUser
 import com.example.kboard.entities.Users
 import org.springframework.core.MethodParameter
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
 import org.springframework.web.context.request.NativeWebRequest
-import org.springframework.web.context.request.ServletWebRequest
 import org.springframework.stereotype.Component
+import org.springframework.web.bind.support.WebDataBinderFactory
 
 @Component
 class CurrentUserArgumentResolver : HandlerMethodArgumentResolver {
@@ -22,7 +22,7 @@ class CurrentUserArgumentResolver : HandlerMethodArgumentResolver {
         parameter: MethodParameter,
         mavContainer: ModelAndViewContainer?,
         webRequest: NativeWebRequest,
-        binderFactory: org.springframework.web.bind.support.WebDataBinderFactory?
+        binderFactory: WebDataBinderFactory?
     ): Any? {
         val auth = SecurityContextHolder.getContext().authentication
         return auth?.principal as? Users

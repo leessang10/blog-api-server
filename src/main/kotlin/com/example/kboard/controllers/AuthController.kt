@@ -4,7 +4,7 @@ import com.example.kboard.dto.ApiResponse
 import com.example.kboard.dto.ApiResult
 import com.example.kboard.dto.LoginRequest
 import com.example.kboard.dto.LoginResponse
-import com.example.kboard.jwt.JwtProvider
+import com.example.kboard.infra.jwt.JwtProvider
 import com.example.kboard.services.UsersService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

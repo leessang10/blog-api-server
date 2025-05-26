@@ -1,6 +1,6 @@
-package com.example.kboard.filters
+package com.example.kboard.infra.filters
 
-import com.example.kboard.jwt.JwtProvider
+import com.example.kboard.infra.jwt.JwtProvider
 import com.example.kboard.repositories.UsersRepository
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest

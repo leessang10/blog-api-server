@@ -1,12 +1,11 @@
 package com.example.kboard.controllers
 
-import com.example.kboard.annotations.CurrentUser
+import com.example.kboard.infra.annotations.CurrentUser
 import com.example.kboard.dto.ApiResponse
 import com.example.kboard.dto.ApiResult
 import com.example.kboard.entities.Users
 import com.example.kboard.services.UsersService
 import org.springframework.http.ResponseEntity
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.*
 
 @RestController

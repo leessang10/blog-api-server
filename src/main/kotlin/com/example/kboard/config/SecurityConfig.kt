@@ -1,9 +1,8 @@
 package com.example.kboard.config
 
-import com.example.kboard.filters.JwtAuthFilter
+import com.example.kboard.infra.filters.JwtAuthFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
